@@ -6,7 +6,7 @@ import ExpensesTable from './components/expenses-list'
 import {
   StoreContext
 } from './reducer/store.reducer';
-import { GetColumns } from './models/columns.model'
+import { GetColumns } from './utils/columns.utils'
 import Sum from './components/sum'
 
 function App() {
