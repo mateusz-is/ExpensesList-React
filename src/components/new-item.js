@@ -17,11 +17,11 @@ function NewItem() {
     const handleChange = (ev) => {
         setNewRow({
             ...newRow,
-            [ev.target.name]: (ev.target.name == 'amountPln') ?
+            [ev.target.name]: (ev.target.name === 'amountPln') ?
                 twoDecimalPoint(ev.target.value) :
                 ev.target.value
         })
-        if (ev.target.name == 'title') (ev.target.value.length >= 5) ? setValidate(true) : setValidate(false)
+        if (ev.target.name === 'title') (ev.target.value.length >= 5) ? setValidate(true) : setValidate(false)
     }
 
     const handleSubmit = () => {
