@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Container } from 'react-bootstrap';
+import { StoreContainer } from './reducer/store.reducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <StoreContainer>
+      <Container className="mt-5 custom-width" >
+        <App />
+      </Container>
+    </StoreContainer>
   </React.StrictMode>
 );
 

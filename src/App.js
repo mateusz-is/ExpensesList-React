@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import ConverstionRate from './components/conversion-rate'
+import { Row, Col } from 'react-bootstrap';
+import NewItem from './components/new-item'
+import ExpensesTable from './components/expenses-list'
+import {
+  StoreContext
+} from './reducer/store.reducer';
+import { GetColumns } from './models/columns.model'
+import Sum from './components/sum'
 
 function App() {
+  const { state: { data } } = useContext(StoreContext);
+  let columns = GetColumns();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Row>
+        <Col md={7}>
+          <h1>List of expenses</h1>
+        </Col>
+        <Col md={5}>
+          <ConverstionRate />
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <NewItem />
+        </Col>
+      </Row>
+      <Row>
+        <ExpensesTable columns={columns} data={data} />
+      </Row>
+      <Row>
+        <Sum />
+      </Row>
+    </>
   );
 }
 
